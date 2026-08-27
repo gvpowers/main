@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420">
+  <defs>
+    <linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d7e4f0"/>
+      <stop offset="1" stop-color="#eef4fd"/>
+    </linearGradient>
+    <linearGradient id="panel6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e7ecf4"/>
+      <stop offset="1" stop-color="#c2ccdc"/>
+    </linearGradient>
+    <linearGradient id="cab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e3b73"/>
+      <stop offset="1" stop-color="#08224a"/>
+    </linearGradient>
+    <linearGradient id="floor6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#aebccf"/>
+      <stop offset="1" stop-color="#93a2b8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="420" fill="url(#sky6)"/>
+
+  <!-- Back wall -->
+  <path d="M0 90 L320 60 L640 80 L640 420 L0 420 Z" fill="#dbe6f2" opacity="0.6"/>
+
+  <!-- Floor -->
+  <rect x="0" y="360" width="640" height="60" fill="url(#floor6)"/>
+  <rect x="0" y="360" width="640" height="8" fill="#9fb0c4"/>
+
+  <!-- Electrical switchgear cabinet (large) -->
+  <g>
+    <rect x="120" y="120" width="260" height="240" rx="10" fill="#c2ccdc"/>
+    <rect x="120" y="120" width="260" height="240" rx="10" fill="none" stroke="#9fb0c4" stroke-width="2"/>
+    <rect x="120" y="120" width="260" height="22" rx="6" fill="#8896aa"/>
+
+    <!-- Meter/display panel -->
+    <rect x="150" y="158" width="90" height="66" rx="6" fill="#eef2f7" stroke="#9fb0c4"/>
+    <circle cx="180" cy="186" r="22" fill="#fff" stroke="#0e3b73"/>
+    <g stroke="#0e3b73" stroke-width="2">
+      <line x1="180" y1="186" x2="180" y2="168"/>
+      <line x1="180" y1="186" x2="196" y2="196"/>
+    </g>
+    <circle cx="222" cy="186" r="14" fill="#4ade80"/>
+
+    <!-- Breakers row 1 -->
+    <g>
+      <rect x="256" y="158" width="44" height="30" rx="4" fill="#f1f5f9" stroke="#9fb0c4"/>
+      <rect x="266" y="166" width="24" height="6" fill="#0e3b73"/>
+      <rect x="262" y="180" width="32" height="4" fill="#c2ccdc"/>
+      <circle cx="310" cy="220" r="6" fill="#f87171"/>
+      <circle cx="330" cy="220" r="6" fill="#fdd26a"/>
+      <circle cx="350" cy="220" r="6" fill="#4ade80"/>
+    </g>
+
+    <!-- Breakers row 2 (mini breakers) -->
+    <g fill="none">
+      <rect x="150" y="248" width="30" height="52" rx="4" fill="#f1f5f9" stroke="#9fb0c4"/>
+      <rect x="158" y="258" width="14" height="8" fill="#0e3b73"/>
+      <rect x="188" y="248" width="30" height="52" rx="4" fill="#f1f5f9" stroke="#9fb0c4"/>
+      <rect x="196" y="258" width="14" height="8" fill="#0e3b73"/>
+      <rect x="226" y="248" width="30" height="52" rx="4" fill="#f1f5f9" stroke="#9fb0c4"/>
+      <rect x="234" y="258" width="14" height="8" fill="#0e3b73"/>
+      <rect x="264" y="248" width="30" height="52" rx="4" fill="#f1f5f9" stroke="#9fb0c4"/>
+      <rect x="272" y="258" width="14" height="8" fill="#0e3b73"/>
+    </g>
+
+    <!-- Label strip -->
+    <rect x="150" y="314" width="200" height="16" rx="3" fill="#0e3b73"/>
+    <text x="250" y="326" font-family="Arial" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">MAIN DISTRIBUTION</text>
+  </g>
+
+  <!-- Secondary panel -->
+  <g transform="translate(420 200)">
+    <rect x="0" y="0" width="96" height="100" rx="8" fill="url(#panel6)" stroke="#9fb0c4"/>
+    <rect x="0" y="0" width="96" height="14" rx="5" fill="#8896aa"/>
+    <circle cx="26" cy="44" r="10" fill="#f87171"/>
+    <circle cx="52" cy="44" r="10" fill="#fdd26a"/>
+    <circle cx="78" cy="44" r="10" fill="#4ade80"/>
+    <rect x="18" y="64" width="60" height="18" rx="3" fill="#f1f5f9" stroke="#9fb0c4"/>
+  </g>
+
+  <!-- Conduit cables -->
+  <g stroke="#0e3b73" stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M120 150 C90 150 90 120 90 100 C90 84 100 78 118 78"/>
+    <path d="M480 200 C520 200 520 160 524 130"/>
+  </g>
+  <g stroke="#1660a8" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M120 220 C80 220 70 260 66 300"/>
+  </g>
+  <!-- Wall socket -->
+  <rect x="540" y="300" width="34" height="46" rx="6" fill="#e7ecf4" stroke="#9fb0c4"/>
+  <circle cx="557" cy="320" r="4" fill="#0e3b73"/>
+  <circle cx="557" cy="334" r="4" fill="#0e3b73"/>
+
+  <!-- Ambient glow -->
+  <circle cx="250" cy="220" r="130" fill="#60a5fa" opacity="0.06"/>
+
+  <!-- Cones -->
+  <path d="M64 366 l6 -30 h8 l6 30 z" fill="#f87171"/>
+  <rect x="64" y="364" width="20" height="5" rx="2" fill="#e5e7eb"/>
+</svg>

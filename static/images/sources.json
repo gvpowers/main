@@ -1,0 +1,105 @@
+{
+  "hero.webp": {
+    "filename": "hero.webp",
+    "fallback": "hero.jpg",
+    "subject": "Commercial rooftop solar installation",
+    "source": "Unsplash",
+    "author": "Unsplash (free photo)",
+    "author_credit": "Free Unsplash image",
+    "source_url": "https://unsplash.com/photos/solar-panels-cover-a-large-industrial-buildings-roof-NEIfsHMjHSQ",
+    "license": "Unsplash License (free to use for commercial and non-commercial purposes)",
+    "note": "Free-to-use under the Unsplash License."
+  },
+  "solar.webp": {
+    "filename": "solar.webp",
+    "fallback": "solar.jpg",
+    "subject": "Large-scale solar panel farm",
+    "source": "Unsplash",
+    "author": "Vlad Burac",
+    "author_credit": "Vlad Burac (@vladburac)",
+    "source_url": "https://unsplash.com/photos/aerial-view-of-a-large-solar-panel-farm-in-a-rural-landscape-7t9nDG0HVLg",
+    "license": "Unsplash License"
+  },
+  "generator.webp": {
+    "filename": "generator.webp",
+    "fallback": "generator.jpg",
+    "subject": "Industrial diesel generator",
+    "source": "Unsplash",
+    "author": "Unsplash (free photo)",
+    "author_credit": "Free Unsplash image",
+    "source_url": "https://unsplash.com/photos/black-and-red-generator-ef36Vao8B8g",
+    "license": "Unsplash License"
+  },
+  "bess.webp": {
+    "filename": "bess.webp",
+    "fallback": "bess.jpg",
+    "subject": "Industrial battery energy storage container installation",
+    "source": "Unsplash",
+    "author": "Unsplash (free photo)",
+    "author_credit": "Free Unsplash image",
+    "source_url": "https://unsplash.com/photos/crane-lifting-a-large-shipping-container-against-the-sky-wCSCTTZqHbI",
+    "license": "Unsplash License"
+  },
+  "ups.webp": {
+    "filename": "ups.webp",
+    "fallback": "ups.jpg",
+    "subject": "Large 500kVA industrial UPS (Uninterruptible Power Supply) being installed by electricians in a datacenter",
+    "source": "Wikimedia Commons",
+    "author": "Cgxke",
+    "author_credit": "Cgxke (Wikimedia Commons)",
+    "source_url": "https://commons.wikimedia.org/wiki/File:500kVA-UPS.jpg",
+    "license": "Public Domain (CC0 / PD-self)",
+    "note": "Public domain work. Free to use for any purpose without attribution."
+  },
+  "inverter.webp": {
+    "filename": "inverter.webp",
+    "fallback": "inverter.jpg",
+    "subject": "Detailed close-up of solar inverter internals / power conversion electronics",
+    "source": "Pexels",
+    "author": "Pexels",
+    "author_credit": "Free Pexels image",
+    "source_url": "https://www.pexels.com/photo/detailed-close-up-of-solar-inverter-internals-38171183/",
+    "license": "Pexels License (free to use, no attribution required)",
+    "note": "Free-to-use under the Pexels License."
+  },
+  "pump.webp": {
+    "filename": "pump.webp",
+    "fallback": "pump.jpg",
+    "subject": "Water pump in a rural agricultural field",
+    "source": "Unsplash",
+    "author": "Mirza Zubair",
+    "author_credit": "Mirza Zubair (@mirza009)",
+    "source_url": "https://unsplash.com/photos/water-pump-in-a-rural-field-with-trees-ugPNWn80mG4",
+    "license": "Unsplash License"
+  },
+  "electrical.webp": {
+    "filename": "electrical.webp",
+    "fallback": "electrical.jpg",
+    "subject": "Industrial electrical control panel",
+    "source": "Unsplash",
+    "author": "Aasing Gwok",
+    "author_credit": "Aasing Gwok (@aasing_gwok)",
+    "source_url": "https://unsplash.com/photos/electrical-control-panel-with-various-switches-and-displays-zCbBf-BZK3A",
+    "license": "Unsplash License"
+  },
+  "service.webp": {
+    "filename": "service.webp",
+    "fallback": "service.jpg",
+    "subject": "Engineer / technician servicing industrial equipment",
+    "source": "Unsplash",
+    "author": "Raymond Sime",
+    "author_credit": "Raymond Sime (@raymond36)",
+    "source_url": "https://unsplash.com/photos/engineer-operating-a-control-panel-of-industrial-equipment-rVTIsDcQaq4",
+    "license": "Unsplash License"
+  },
+  "about.webp": {
+    "filename": "about.webp",
+    "fallback": "about.jpg",
+    "subject": "Large solar farm and agricultural fields (energy company overview)",
+    "source": "Unsplash",
+    "author": "Vlad Burac",
+    "author_credit": "Vlad Burac (@vladburac)",
+    "source_url": "https://unsplash.com/photos/aerial-view-of-a-large-solar-farm-and-agricultural-fields-1EVJqK_f8Hg",
+    "license": "Unsplash License"
+  }
+}

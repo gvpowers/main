@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420">
+  <defs>
+    <linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cfe6f0"/>
+      <stop offset="1" stop-color="#eef6f7"/>
+    </linearGradient>
+    <linearGradient id="sun5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdd26a"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="pan5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#155094"/>
+      <stop offset="1" stop-color="#0c3469"/>
+    </linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9815b"/>
+      <stop offset="1" stop-color="#8a6544"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#69c1ef"/>
+      <stop offset="1" stop-color="#3b9fd6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="420" fill="url(#sky5)"/>
+
+  <!-- Sun -->
+  <circle cx="100" cy="80" r="42" fill="url(#sun5)"/>
+  <g stroke="#f5b53a" stroke-width="4" stroke-linecap="round" opacity="0.85">
+    <line x1="100" y1="22" x2="100" y2="38"/>
+    <line x1="100" y1="122" x2="100" y2="138"/>
+    <line x1="44" y1="80" x2="60" y2="80"/>
+    <line x1="140" y1="80" x2="156" y2="80"/>
+  </g>
+
+  <!-- Green field -->
+  <rect x="120" y="240" width="520" height="180" fill="#7cb342"/>
+  <rect x="120" y="240" width="520" height="180" fill="#5f9c36" opacity="0.35"/>
+  <!-- Crop rows -->
+  <g stroke="#558f31" stroke-width="3" opacity="0.7">
+    <line x1="150" y1="250" x2="150" y2="420"/>
+    <line x1="190" y1="250" x2="190" y2="420"/>
+    <line x1="230" y1="250" x2="230" y2="420"/>
+  </g>
+
+  <!-- Ground patch -->
+  <rect x="0" y="380" width="640" height="40" fill="#8a6544"/>
+
+  <!-- Water tank / reservoir -->
+  <ellipse cx="560" cy="368" rx="46" ry="18" fill="url(#water)"/>
+  <rect x="514" y="250" width="92" height="118" rx="10" fill="#d7dee8" stroke="#9fb0c4"/>
+  <g stroke="#9fb0c4" stroke-width="3">
+    <line x1="524" y1="270" x2="596" y2="270"/>
+    <line x1="524" y1="292" x2="596" y2="292"/>
+    <line x1="524" y1="314" x2="596" y2="314"/>
+    <line x1="524" y1="336" x2="596" y2="336"/>
+  </g>
+  <rect x="554" y="356" width="12" height="8" rx="2" fill="#5b6b82"/>
+
+  <!-- Pipe from pump to tank -->
+  <path d="M430 360 C470 360 480 370 512 372" stroke="#5b6b82" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+  <!-- Solar panel on stand -->
+  <g>
+    <g>
+      <rect x="330" y="150" width="120" height="66" rx="4" fill="url(#pan5)" stroke="#2a5c9a"/>
+      <rect x="340" y="160" width="34" height="20" fill="#0f3a7a"/>
+      <rect x="380" y="160" width="34" height="20" fill="#1660a8"/>
+      <rect x="340" y="186" width="34" height="20" fill="#1660a8"/>
+      <rect x="380" y="186" width="34" height="20" fill="#0f3a7a"/>
+      <line x1="374" y1="160" x2="374" y2="206" stroke="#2a5c9a" stroke-width="1.5"/>
+      <line x1="340" y1="173" x2="448" y2="173" stroke="#2a5c9a" stroke-width="1.5"/>
+    </g>
+    <!-- stand -->
+    <line x1="366" y1="216" x2="380" y2="300" stroke="#8896aa" stroke-width="7" stroke-linecap="round"/>
+    <line x1="414" y1="216" x2="400" y2="300" stroke="#8896aa" stroke-width="7" stroke-linecap="round"/>
+    <line x1="360" y1="300" x2="420" y2="300" stroke="#8896aa" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Pump housing -->
+  <g>
+    <circle cx="380" cy="330" r="26" fill="url(#water)"/>
+    <circle cx="380" cy="330" r="26" fill="none" stroke="#2a7fb0" stroke-width="3"/>
+    <circle cx="380" cy="330" r="9" fill="#e8eef5" stroke="#9fb0c4" stroke-width="2"/>
+    <!-- motor -->
+    <rect x="346" y="336" width="68" height="26" rx="8" fill="#0e3b73"/>
+    <rect x="352" y="326" width="14" height="10" rx="3" fill="#0e3b73"/>
+  </g>
+
+  <!-- Water spray -->
+  <g fill="#bfe3fb" opacity="0.9">
+    <circle cx="140" cy="310" r="6"/>
+    <circle cx="156" cy="332" r="8"/>
+    <circle cx="176" cy="356" r="6"/>
+    <circle cx="120" cy="336" r="5"/>
+  </g>
+  <g stroke="#9fd4f2" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8">
+    <path d="M150 296 C160 300 156 318 176 322"/>
+  </g>
+
+  <!-- Crop on left field -->
+  <g fill="#558f31" opacity="0.9">
+    <path d="M52 420 l10 -40 l10 40 z"/>
+    <path d="M76 420 l8 -34 l8 34 z"/>
+    <path d="M96 420 l9 -38 l9 38 z"/>
+  </g>
+</svg>

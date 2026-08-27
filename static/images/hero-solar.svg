@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520">
+  <defs>
+    <linearGradient id="skyH" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9c7e8"/>
+      <stop offset="0.6" stop-color="#cfe3fd"/>
+      <stop offset="1" stop-color="#eef4fd"/>
+    </linearGradient>
+    <linearGradient id="sunH" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde08a"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="panelH" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b5aa4"/>
+      <stop offset="1" stop-color="#0c3469"/>
+    </linearGradient>
+    <linearGradient id="panelH2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1660a8"/>
+      <stop offset="1" stop-color="#0f3a7a"/>
+    </linearGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8bc34a"/>
+      <stop offset="1" stop-color="#5f9c36"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#skyH)"/>
+
+  <!-- Sun with halo -->
+  <circle cx="180" cy="120" r="54" fill="url(#sunH)"/>
+  <circle cx="180" cy="120" r="76" fill="#fde08a" opacity="0.28"/>
+  <g stroke="#f5b53a" stroke-width="5" stroke-linecap="round" opacity="0.9">
+    <line x1="180" y1="42" x2="180" y2="62"/>
+    <line x1="180" y1="178" x2="180" y2="198"/>
+    <line x1="102" y1="120" x2="122" y2="120"/>
+    <line x1="238" y1="120" x2="258" y2="120"/>
+    <line x1="125" y1="65" x2="139" y2="51"/>
+    <line x1="235" y1="65" x2="221" y2="51"/>
+  </g>
+
+  <!-- Clouds -->
+  <g fill="#ffffff" opacity="0.7">
+    <ellipse cx="760" cy="96" rx="70" ry="22"/>
+    <ellipse cx="820" cy="82" rx="44" ry="16"/>
+    <ellipse cx="700" cy="116" rx="34" ry="12"/>
+    <ellipse cx="1080" cy="150" rx="56" ry="18"/>
+  </g>
+
+  <!-- Distant hills -->
+  <path d="M0 330 Q200 250 420 310 T760 280 T1200 320 V520 H0 Z" fill="#a5cf6f" opacity="0.55"/>
+
+  <!-- Transmission tower far -->
+  <g stroke="#75869c" stroke-width="4" fill="none" opacity="0.6" stroke-linecap="round">
+    <path d="M880 380 V320"/>
+    <path d="M856 380 L880 348 L904 380"/>
+    <path d="M880 320 L872 348 L880 348 L888 348"/>
+    <path d="M870 348 L858 380"/>
+    <path d="M890 348 L902 380"/>
+  </g>
+
+  <!-- Solar farm mid-ground: three arrays in perspective -->
+  <g transform="translate(120 300)">
+    <g>
+      <g>
+        <rect x="0" y="0" width="120" height="70" rx="4" fill="url(#panelH)"/>
+        <rect x="6" y="6" width="34" height="20" fill="#0f3a7a"/>
+        <rect x="44" y="6" width="30" height="20" fill="#1660a8"/>
+        <rect x="78" y="6" width="30" height="20" fill="#0f3a7a"/>
+        <rect x="6" y="30" width="34" height="20" fill="#1660a8"/>
+        <rect x="44" y="30" width="30" height="20" fill="#0f3a7a"/>
+        <rect x="78" y="30" width="30" height="20" fill="#1660a8"/>
+      </g>
+      <line x1="20" y1="70" x2="28" y2="150" stroke="#8896aa" stroke-width="6" stroke-linecap="round"/>
+      <line x1="100" y1="70" x2="92" y2="150" stroke="#8896aa" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(150 26) scale(1.25)">
+      <g>
+        <rect x="0" y="0" width="120" height="70" rx="4" fill="url(#panelH2)"/>
+        <rect x="6" y="6" width="34" height="20" fill="#1660a8"/>
+        <rect x="44" y="6" width="30" height="20" fill="#0f3a7a"/>
+        <rect x="78" y="6" width="30" height="20" fill="#1660a8"/>
+        <rect x="6" y="30" width="34" height="20" fill="#0f3a7a"/>
+        <rect x="44" y="30" width="30" height="20" fill="#1660a8"/>
+        <rect x="78" y="30" width="30" height="20" fill="#0f3a7a"/>
+      </g>
+      <line x1="20" y1="70" x2="30" y2="150" stroke="#8896aa" stroke-width="6" stroke-linecap="round"/>
+      <line x1="100" y1="70" x2="92" y2="150" stroke="#8896aa" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(330 46)">
+      <g>
+        <rect x="0" y="0" width="120" height="70" rx="4" fill="url(#panelH)"/>
+        <rect x="6" y="6" width="34" height="20" fill="#0f3a7a"/>
+        <rect x="44" y="6" width="30" height="20" fill="#1660a8"/>
+        <rect x="78" y="6" width="30" height="20" fill="#0f3a7a"/>
+        <rect x="6" y="30" width="34" height="20" fill="#1660a8"/>
+        <rect x="44" y="30" width="30" height="20" fill="#0f3a7a"/>
+        <rect x="78" y="30" width="30" height="20" fill="#1660a8"/>
+      </g>
+      <line x1="20" y1="70" x2="30" y2="150" stroke="#8896aa" stroke-width="6" stroke-linecap="round"/>
+      <line x1="100" y1="70" x2="92" y2="150" stroke="#8896aa" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Foreground panels (partially cut off, large) -->
+  <g transform="translate(600 300) scale(2.0)">
+    <g>
+      <rect x="0" y="0" width="120" height="70" rx="4" fill="url(#panelH2)"/>
+      <rect x="6" y="6" width="34" height="20" fill="#1660a8"/>
+      <rect x="44" y="6" width="30" height="20" fill="#0f3a7a"/>
+      <rect x="78" y="6" width="30" height="20" fill="#1660a8"/>
+      <rect x="6" y="30" width="34" height="20" fill="#0f3a7a"/>
+      <rect x="44" y="30" width="30" height="20" fill="#1660a8"/>
+      <rect x="78" y="30" width="30" height="20" fill="#0f3a7a"/>
+    </g>
+  </g>
+
+  <!-- Field foreground -->
+  <rect x="0" y="430" width="1200" height="90" fill="url(#field)"/>
+  <rect x="0" y="430" width="1200" height="12" fill="#98c95a"/>
+  <!-- Bush silhouettes -->
+  <g fill="#4c7a28" opacity="0.8">
+    <ellipse cx="300" cy="458" rx="34" ry="16"/>
+    <ellipse cx="330" cy="452" rx="20" ry="12"/>
+    <ellipse cx="980" cy="462" rx="40" ry="18"/>
+  </g>
+</svg>

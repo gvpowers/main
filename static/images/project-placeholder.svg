@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <rect width="640" height="400" fill="#f1f5f9"/>
+  <g stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 6">
+    <path d="M-20 300 L220 170 L320 230 L660 90"/>
+  </g>
+  <g fill="#16a34a"><circle cx="220" cy="170" r="6"/><circle cx="320" cy="230" r="6"/><circle cx="450" cy="140" r="6"/><circle cx="550" cy="180" r="6"/></g>
+  <g stroke="#94a3b8" stroke-width="2" fill="#1453a8">
+    <rect x="200" y="150" width="40" height="34" rx="3"/>
+    <rect x="300" y="210" width="40" height="34" rx="3"/>
+    <rect x="430" y="120" width="40" height="34" rx="3"/>
+    <rect x="530" y="160" width="40" height="34" rx="3"/>
+  </g>
+  <text x="320" y="330" font-family="Arial" font-size="22" font-weight="bold" fill="#64748b" text-anchor="middle">Project Under Development</text>
+  <text x="320" y="360" font-family="Arial" font-size="15" fill="#94a3b8" text-anchor="middle">Project information coming soon</text>
+</svg>
