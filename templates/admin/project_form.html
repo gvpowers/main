@@ -1,0 +1,70 @@
+{% extends 'admin/base.html' %}
+{% block title %}{{ 'Edit' if item else 'Add' }} Project{% endblock %}
+{% block content %}
+<div class="admin-top">
+    <div>
+        <h1>{{ 'Edit Project' if item else 'Add Project' }}</h1>
+    </div>
+    <a href="{{ url_for('admin.projects') }}" class="btn btn-ghost btn-sm">&larr; Back</a>
+</div>
+
+<div class="admin-card">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data" class="admin-form"
+              action="{{ url_for('admin.project_edit', pid=item.id) if item else url_for('admin.project_add') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-field">
+                <label>Project Name *</label>
+                <input type="text" name="name" required value="{{ item.name if item else '' }}">
+            </div>
+            <div class="form-field">
+                <label>Location</label>
+                <input type="text" name="location" value="{{ item.location if item else '' }}">
+            </div>
+            <div class="form-field">
+                <label>Capacity</label>
+                <input type="text" name="capacity" placeholder="e.g. 5 kWp" value="{{ item.capacity if item else '' }}">
+            </div>
+            <div class="form-field">
+                <label>Client Name</label>
+                <input type="text" name="client" value="{{ item.client if item else '' }}">
+            </div>
+            <div class="form-field">
+                <label>Status</label>
+                <select name="status">
+                    <option value="completed" {{ 'selected' if item and item.status=='completed' }}>Completed</option>
+                    <option value="ongoing" {{ 'selected' if not item or item.status=='ongoing' }}>Ongoing</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label>Completion Date</label>
+                <input type="date" name="completion_date" value="{{ item.completion_date.strftime('%Y-%m-%d') if item and item.completion_date else '' }}">
+            </div>
+            <div class="form-field full">
+                <label>Description</label>
+                <textarea name="description" rows="5">{{ item.description if item else '' }}</textarea>
+            </div>
+            <div class="form-field full">
+                <label>Image (Project Gallery)</label>
+                <input type="file" name="image" accept="image/*">
+                {% if item and item.image %}
+                <div style="margin-top:.6rem;display:flex;align-items:center;gap:.8rem">
+                    <img src="{{ url_for('static', filename='images/uploads/' ~ item.image) }}" alt="Current project image"
+                         style="width:140px;height:88px;object-fit:cover;border-radius:8px">
+                    <label style="display:inline-flex;align-items:center;gap:.4rem;cursor:pointer">
+                        <input type="checkbox" name="remove_image" value="1"> Remove current image
+                    </label>
+                </div>
+                <small style="color:var(--ink-500)">Current: {{ item.image }} &middot; Upload a new file to replace it.</small>
+                {% else %}
+                <small style="color:var(--ink-500)">Optional. If none, a neutral placeholder is shown.</small>
+                {% endif %}
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save Project</button>
+                <a href="{{ url_for('admin.projects') }}" class="btn btn-ghost">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

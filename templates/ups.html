@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% from 'macros/img.html' import picture %}
+{% block title %}UPS & Inverters | {{ settings.company_name }}{% endblock %}
+{% block description %}{{ settings.company_name }} provides online and offline UPS systems, solar and hybrid inverters and battery backup with {{ stats.ups_sold }}+ UPS sold and complete service support across Tamil Nadu.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1>UPS &amp; Inverters</h1>
+        <p class="breadcrumb"><a href="{{ url_for('public.home') }}">Home</a> &nbsp;/&nbsp; UPS &amp; Inverters</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div class="visual reveal">
+            {{ picture('inverter', alt='Solar and hybrid inverters by GV POWERS', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float bottom-right">
+                <div class="num counter" data-target="{{ stats.ups_sold }}">{{ stats.ups_sold }}+</div>
+                <div class="lbl">UPS sold</div>
+            </div>
+        </div>
+        <div class="content reveal d1">
+            <span class="eyebrow">Power Backup</span>
+            <h2>{{ stats.ups_sold }}+ UPS Sold</h2>
+            <p>{{ settings.company_name }} supplies and services UPS systems, inverters and battery backup solutions to keep homes, businesses and industries running during power cuts.</p>
+            <ul class="check-list">
+                <li>Online &amp; offline UPS systems</li>
+                <li>Solar, hybrid &amp; normal inverters</li>
+                <li>Battery systems &amp; backup</li>
+                <li>Complete inverter &amp; UPS service</li>
+            </ul>
+            <div class="hero-buttons" style="margin-top:10px">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-primary">Get a Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Our Range</span>
+            <h2>UPS, Inverter &amp; Battery Solutions</h2>
+        </div>
+        <div class="cards-grid">
+            <div class="icon-card reveal"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>UPS Systems</h3><p>Uninterruptible power supplies for computers, servers and critical equipment.</p></div>
+            <div class="icon-card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>Online UPS</h3><p>True online double-conversion UPS for sensitive and critical loads.</p></div>
+            <div class="icon-card reveal d2"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>Offline UPS</h3><p>Standby UPS systems for home and office backup requirements.</p></div>
+            <div class="icon-card reveal d3"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7z"/></svg></div><h3>Inverters</h3><p>Reliable inverters for home and office power backup.</p></div>
+            <div class="icon-card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>Solar &amp; Hybrid Inverters</h3><p>Solar and hybrid inverters for renewable-powered backup and savings.</p></div>
+            <div class="icon-card reveal d2"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7z"/></svg></div><h3>Battery Systems</h3><p>Batteries and battery backup systems for UPS and inverters.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cards-grid cols-2">
+            <div class="icon-card reveal">
+                <h3 style="color:var(--blue-800)">Sales</h3>
+                <ul class="check-list">
+                    <li>Online &amp; offline UPS</li>
+                    <li>Solar &amp; hybrid inverters</li>
+                    <li>Battery &amp; backup systems</li>
+                </ul>
+            </div>
+            <div class="icon-card reveal d1">
+                <h3 style="color:var(--blue-800)">Service &amp; Maintenance</h3>
+                <ul class="check-list">
+                    <li>Inverter &amp; UPS servicing</li>
+                    <li>Battery replacement &amp; maintenance</li>
+                    <li>Troubleshooting &amp; repairs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Need UPS or inverter support?</h2>
+                <p>Get the right UPS, inverter and battery backup for your needs.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-gold">Get a Quote</a>
+                <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-outline-light">Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

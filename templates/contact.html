@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us | {{ settings.company_name }}{% endblock %}
+{% block description %}Contact {{ settings.company_name }} for solar, generators, BESS, UPS, inverters, agricultural pump sets and electrical solutions. Call 98940-79090 or email us. Serving customers across Tamil Nadu.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <span class="eyebrow">Contact {{ settings.company_name }}</span>
+        <h1>Let's Power Your Next Project</h1>
+        <p>Energy &amp; Power Solutions Since {{ settings.established }}</p>
+        <p class="breadcrumb"><a href="{{ url_for('public.home') }}">Home</a> &nbsp;/&nbsp; Contact Us</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Let's Talk</span>
+            <h2>Have a Requirement? Get in Touch</h2>
+            <p>Need professional energy and power solutions &mdash; solar, generators, BESS, UPS, inverters, agricultural pump sets or electrical systems? Our team is here to help.</p>
+        </div>
+
+        <div class="contact-cards">
+            <div class="contact-card reveal">
+                <h3><span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span> Chennai Office</h3>
+                <div class="cc-lines">
+                    <div><strong>Phone</strong><a href="tel:{{ settings.phone_1_tel }}">{{ settings.phone_1 }}</a></div>
+                    <div><strong>Phone</strong><a href="tel:{{ settings.phone_2_tel }}">{{ settings.phone_2 }}</a></div>
+                    <div><strong>Email</strong><a href="mailto:{{ settings.email_2 }}">{{ settings.email_2 }}</a></div>
+                </div>
+                <div class="cc-actions">
+                    <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-primary btn-sm">Call Now</a>
+                    <a href="mailto:{{ settings.email_2 }}" class="btn btn-ghost-glass btn-sm">Email Us</a>
+                </div>
+            </div>
+
+            <div class="contact-card reveal d1">
+                <h3><span class="cc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span> Salem Office</h3>
+                <div class="cc-lines">
+                    <div><strong>Phone</strong><a href="tel:{{ settings.phone_1_tel }}">{{ settings.phone_1 }}</a></div>
+                    <div><strong>Phone</strong><a href="tel:{{ settings.phone_2_tel }}">{{ settings.phone_2 }}</a></div>
+                    <div><strong>Email</strong><a href="mailto:{{ settings.email_1 }}">{{ settings.email_1 }}</a></div>
+                </div>
+                <div class="cc-actions">
+                    <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-primary btn-sm">Call Now</a>
+                    <a href="mailto:{{ settings.email_1 }}" class="btn btn-ghost-glass btn-sm">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Coverage</span>
+            <h2>Serving Customers Across {{ settings.service_area }}</h2>
+            <p>Chennai &bull; Salem &bull; Attur &bull; Kallakurichi &bull; Vazhapadi</p>
+        </div>
+        <div class="location-grid">
+            {% for loc in nav_locations %}
+            <div class="location-card {{ 'office' if loc.location_type=='office' }} reveal">
+                <div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+                <div class="loc-type">{{ 'Office' if loc.location_type=='office' else 'Service' }}</div>
+                <h3>{{ loc.city }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Prefer to call or write to us?</h2>
+                <p>Our team is available to discuss your energy and power requirements. Reach us directly on phone or email.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-gold">Call {{ settings.phone_1 }}</a>
+                <a href="mailto:{{ settings.email_2 }}" class="btn btn-outline-light">Email Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

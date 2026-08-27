@@ -1,0 +1,65 @@
+{% extends 'admin/base.html' %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<div class="admin-top"><div><h1>Site Settings</h1></div></div>
+
+<div class="admin-card">
+    <div class="card-head"><h2>Company Information</h2></div>
+    <div class="card-body">
+        <form method="post" action="{{ url_for('admin.settings') }}" class="admin-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-field"><label>Company Name</label><input type="text" name="company_name" value="{{ settings.company_name }}"></div>
+            <div class="form-field"><label>Established Year</label><input type="text" name="established" value="{{ settings.established }}"></div>
+            <div class="form-field"><label>Tagline</label><input type="text" name="tagline" value="{{ settings.tagline }}"></div>
+            <div class="form-field"><label>Service Area</label><input type="text" name="service_area" value="{{ settings.service_area }}"></div>
+            <div class="form-field full"><label>Company Description</label><textarea name="company_description" rows="4">{{ settings.company_description }}</textarea></div>
+            <div class="form-actions"><button type="submit" class="btn btn-primary">Save Settings</button></div>
+        </form>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="card-head"><h2>Contact Details</h2></div>
+    <div class="card-body">
+        <form method="post" action="{{ url_for('admin.settings') }}" class="admin-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-field"><label>Phone 1 (display)</label><input type="text" name="phone_1" value="{{ settings.phone_1 }}"></div>
+            <div class="form-field"><label>Phone 1 (tel link)</label><input type="text" name="phone_1_tel" value="{{ settings.phone_1_tel }}"></div>
+            <div class="form-field"><label>Phone 2 (display)</label><input type="text" name="phone_2" value="{{ settings.phone_2 }}"></div>
+            <div class="form-field"><label>Phone 2 (tel link)</label><input type="text" name="phone_2_tel" value="{{ settings.phone_2_tel }}"></div>
+            <div class="form-field"><label>WhatsApp (digits only, blank to hide)</label><input type="text" name="whatsapp" value="{{ settings.whatsapp }}"></div>
+            <div class="form-field"><label>Email 1 (Salem)</label><input type="text" name="email_1" value="{{ settings.email_1 }}"></div>
+            <div class="form-field"><label>Email 2 (Chennai)</label><input type="text" name="email_2" value="{{ settings.email_2 }}"></div>
+            <div class="form-actions"><button type="submit" class="btn btn-primary">Save Settings</button></div>
+        </form>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="card-head"><h2>Homepage Hero</h2></div>
+    <div class="card-body">
+        <form method="post" action="{{ url_for('admin.settings') }}" class="admin-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-field full"><label>Hero Headline</label><input type="text" name="hero_headline" value="{{ settings.hero_headline }}"></div>
+            <div class="form-field full"><label>Hero Subheading</label><input type="text" name="hero_subheading" value="{{ settings.hero_subheading }}"></div>
+            <div class="form-field full"><label>Hero Text</label><textarea name="hero_text" rows="3">{{ settings.hero_text }}</textarea></div>
+            <div class="form-actions"><button type="submit" class="btn btn-primary">Save Settings</button></div>
+        </form>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="card-head"><h2>Statistics</h2></div>
+    <div class="card-body">
+        <form method="post" action="{{ url_for('admin.settings') }}" class="admin-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-field"><label>Completed Solar Projects</label><input type="text" name="stat_projects_completed" value="{{ settings.stat_projects_completed }}"></div>
+            <div class="form-field"><label>Ongoing Solar Projects</label><input type="text" name="stat_projects_ongoing" value="{{ settings.stat_projects_ongoing }}"></div>
+            <div class="form-field"><label>UPS Sold</label><input type="text" name="stat_ups_sold" value="{{ settings.stat_ups_sold }}"></div>
+            <div class="form-field"><label>Generators Sold</label><input type="text" name="stat_generators_sold" value="{{ settings.stat_generators_sold }}"></div>
+            <div class="form-field"><label>Experience Since</label><input type="text" name="stat_experience" value="{{ settings.stat_experience }}"></div>
+            <div class="form-actions"><button type="submit" class="btn btn-primary">Save Settings</button></div>
+        </form>
+    </div>
+</div>
+{% endblock %}

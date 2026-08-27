@@ -1,0 +1,60 @@
+{% extends 'admin/base.html' %}
+{% block title %}{{ 'Edit' if item else 'Add' }} Service{% endblock %}
+{% block content %}
+<div class="admin-top">
+    <div><h1>{{ 'Edit Service' if item else 'Add Service' }}</h1></div>
+    <a href="{{ url_for('admin.services') }}" class="btn btn-ghost btn-sm">&larr; Back</a>
+</div>
+
+<div class="admin-card">
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data" class="admin-form"
+              action="{{ url_for('admin.service_edit', sid=item.id) if item else url_for('admin.service_add') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-field">
+                <label>Service Name *</label>
+                <input type="text" name="name" required value="{{ item.name if item else '' }}">
+            </div>
+            <div class="form-field">
+                <label>Group</label>
+                <select name="group_id">
+                    <option value="">None</option>
+                    {% for g in groups %}
+                    <option value="{{ g.id }}" {{ 'selected' if item and item.group_id==g.id }}>{{ g.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-field">
+                <label>Icon (solar | battery | bolt | engine | water | plug | wrench | cog)</label>
+                <input type="text" name="icon" value="{{ item.icon if item else 'cog' }}">
+            </div>
+            <div class="form-field">
+                <label>Image</label>
+                <input type="file" name="image" accept="image/*">
+                {% if item and item.image %}<small style="color:var(--ink-500)">Current: {{ item.image }}</small>{% endif %}
+            </div>
+            <div class="form-field full">
+                <label>Short Description</label>
+                <textarea name="short_description" rows="2">{{ item.short_description if item else '' }}</textarea>
+            </div>
+            <div class="form-field full">
+                <label>Detailed Description</label>
+                <textarea name="description" rows="4">{{ item.description if item else '' }}</textarea>
+            </div>
+            <div class="form-field">
+                <label style="display:flex;align-items:center;gap:8px;margin-bottom:0"><input type="checkbox" name="sales" {{ 'checked' if not item or item.sales }}> Sales</label>
+            </div>
+            <div class="form-field">
+                <label style="display:flex;align-items:center;gap:8px;margin-bottom:0"><input type="checkbox" name="service" {{ 'checked' if not item or item.service }}> Service</label>
+            </div>
+            <div class="form-field full">
+                <label style="display:flex;align-items:center;gap:8px;margin-bottom:0"><input type="checkbox" name="active" {{ 'checked' if not item or item.active }}> Active (visible on website)</label>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save Service</button>
+                <a href="{{ url_for('admin.services') }}" class="btn btn-ghost">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

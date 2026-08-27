@@ -1,0 +1,65 @@
+{% extends 'admin/base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="admin-top">
+    <div>
+        <h1>Dashboard</h1>
+        <p style="color:var(--ink-500)">Welcome, {{ session.admin_username }}.</p>
+    </div>
+    <a href="{{ url_for('admin.project_add') }}" class="btn btn-primary btn-sm">Add Project</a>
+</div>
+
+<div class="stat-tiles">
+    <div class="stat-tile amber">
+        <div class="num">{{ stats.projects_ongoing }}</div>
+        <div class="lbl">Ongoing Projects</div>
+    </div>
+    <div class="stat-tile green">
+        <div class="num">{{ stats.projects_completed }}</div>
+        <div class="lbl">Completed Projects</div>
+    </div>
+    <div class="stat-tile">
+        <div class="num">{{ stats.projects_total }}</div>
+        <div class="lbl">Total Projects</div>
+    </div>
+    <div class="stat-tile">
+        <div class="num">{{ stats.groups_total }}</div>
+        <div class="lbl">Service Groups</div>
+    </div>
+    <div class="stat-tile">
+        <div class="num">{{ stats.services_total }}</div>
+        <div class="lbl">Services</div>
+    </div>
+    <div class="stat-tile green">
+        <div class="num">{{ stats.locations_total }}</div>
+        <div class="lbl">Locations</div>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="card-head">
+        <h2>Recent Projects</h2>
+        <a href="{{ url_for('admin.projects') }}" style="font-size:.85rem">View all &rarr;</a>
+    </div>
+    <div class="card-body table-wrap">
+        <table class="admin-table">
+            <thead>
+                <tr><th>Project</th><th>Location</th><th>Capacity</th><th>Status</th><th>Date</th></tr>
+            </thead>
+            <tbody>
+                {% for p in recent_projects %}
+                <tr>
+                    <td><strong>{{ p.name }}</strong></td>
+                    <td>{{ p.location or '-' }}</td>
+                    <td>{{ p.capacity or '-' }}</td>
+                    <td><span class="pill pill-{{ p.status }}">{{ p.status|replace('_',' ')|title }}</span></td>
+                    <td>{{ p.created_at|dt }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="5" style="color:var(--ink-500)">No projects yet. Add your first project to get started.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

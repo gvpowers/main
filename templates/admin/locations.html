@@ -1,0 +1,79 @@
+{% extends 'admin/base.html' %}
+{% block title %}Locations{% endblock %}
+{% block content %}
+<div class="admin-top">
+    <div><h1>Locations</h1><p style="color:var(--ink-500)">Add service cities later from here (including the remaining 5).</p></div>
+</div>
+
+<div class="admin-card">
+    <div class="card-head"><h2>Add Location / City</h2></div>
+    <div class="card-body">
+        <form method="post" action="{{ url_for('admin.location_add') }}" class="admin-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-field"><label>City *</label><input type="text" name="city" required></div>
+            <div class="form-field"><label>State</label><input type="text" name="state" value="Tamil Nadu"></div>
+            <div class="form-field">
+                <label>Type</label>
+                <select name="location_type">
+                    <option value="service">Service Location</option>
+                    <option value="office">Office</option>
+                </select>
+            </div>
+            <div class="form-field"><label>Phone</label><input type="text" name="phone"></div>
+            <div class="form-field"><label>Email</label><input type="text" name="email"></div>
+            <div class="form-field"><label>Address</label><input type="text" name="address"></div>
+            <div class="form-field"><label>Latitude</label><input type="text" name="latitude" placeholder="Optional"></div>
+            <div class="form-field"><label>Longitude</label><input type="text" name="longitude" placeholder="Optional"></div>
+            <div class="form-field full">
+                <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" name="active" checked> Active</label>
+            </div>
+            <div class="form-actions"><button type="submit" class="btn btn-primary">Add Location</button></div>
+        </form>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="card-head"><h2>All Locations</h2></div>
+    <div class="card-body">
+        {% for loc in items %}
+        <details style="margin-bottom:12px;border:1px solid var(--gray-200);border-radius:10px;padding:12px 16px">
+            <summary style="cursor:pointer;font-weight:600;display:flex;align-items:center;gap:10px">
+                {{ loc.city }}
+                <span class="pill {{ 'pill-on' if loc.active else 'pill-off' }}">{{ 'Active' if loc.active else 'Hidden' }}</span>
+                <span class="pill {{ 'pill-contacted' if loc.location_type=='office' else 'pill-new' }}">{{ loc.location_type|title }}</span>
+            </summary>
+            <form method="post" action="{{ url_for('admin.location_edit', lid=loc.id) }}" class="admin-form" style="margin-top:14px">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-field"><label>City</label><input type="text" name="city" value="{{ loc.city }}"></div>
+                <div class="form-field"><label>State</label><input type="text" name="state" value="{{ loc.state }}"></div>
+                <div class="form-field">
+                    <label>Type</label>
+                    <select name="location_type">
+                        <option value="service" {{ 'selected' if loc.location_type=='service' }}>Service Location</option>
+                        <option value="office" {{ 'selected' if loc.location_type=='office' }}>Office</option>
+                    </select>
+                </div>
+                <div class="form-field"><label>Phone</label><input type="text" name="phone" value="{{ loc.phone }}"></div>
+                <div class="form-field"><label>Email</label><input type="text" name="email" value="{{ loc.email }}"></div>
+                <div class="form-field"><label>Address</label><input type="text" name="address" value="{{ loc.address }}"></div>
+                <div class="form-field"><label>Latitude</label><input type="text" name="latitude" value="{{ loc.latitude if loc.latitude is not none else '' }}"></div>
+                <div class="form-field"><label>Longitude</label><input type="text" name="longitude" value="{{ loc.longitude if loc.longitude is not none else '' }}"></div>
+                <div class="form-field full">
+                    <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" name="active" {{ 'checked' if loc.active }}> Active</label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                    <button type="button" onclick="this.closest('details').remove()" style="display:none"></button>
+                </div>
+            </form>
+            <form method="post" action="{{ url_for('admin.location_delete', lid=loc.id) }}" style="margin-top:8px" onsubmit="return confirm('Delete this location?');">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+        </details>
+        {% else %}
+        <p style="color:var(--ink-500)">No locations yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

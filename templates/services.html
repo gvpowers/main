@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% from 'macros/img.html' import picture %}
+{% block title %}Services & Solutions | {{ settings.company_name }}{% endblock %}
+{% block description %}Explore {{ settings.company_name }} services: solar systems, BESS, diesel generators, UPS, inverters, agricultural pump sets and electrical solutions with sales, installation, service and maintenance across Tamil Nadu.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1>Our Services &amp; Solutions</h1>
+        <p class="breadcrumb"><a href="{{ url_for('public.home') }}">Home</a> &nbsp;/&nbsp; Services</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Complete Solutions</span>
+            <h2>Sales &amp; Service Across {{ settings.service_area }}</h2>
+            <p>Every solution is backed by sales, installation, service and maintenance capabilities.</p>
+        </div>
+
+        {% for group in groups %}
+        <div class="section" style="padding:32px 0">
+            <div class="split {{ 'rev' if loop.index is even }}">
+                <div class="content reveal">
+                    <span class="eyebrow">{{ group.name }}</span>
+                    <h2>{{ group.short_description }}</h2>
+                    {% if group.description %}<p>{{ group.description }}</p>{% endif %}
+                    <ul class="check-list">
+                        {% for svc in group.services if svc.active %}
+                        <li>
+                            {{ svc.name }}
+                            <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
+                                {% if svc.sales %}<span class="badge">Sales</span>{% endif %}
+                                {% if svc.service %}<span class="badge">Service</span>{% endif %}
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ url_for('public.contact') }}" class="btn btn-primary">Enquire Now</a>
+                </div>
+                <div class="visual reveal d1">
+                    {% set base = IMG.get(group.slug, 'service') %}
+                    {{ picture(base, alt=group.name, loading='lazy') }}
+                    <div class="visual-glow" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+        {% if not loop.last %}<hr class="rule">{% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Not sure which solution fits?</h2>
+                <p>Contact our team for honest guidance on the right energy and power solution for your needs.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-gold">Get a Quote</a>
+                <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-outline-light">Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

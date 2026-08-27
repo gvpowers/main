@@ -1,0 +1,35 @@
+{# Responsive image helper with graceful fallback.
+
+   Usage (stock image, by registry base name):
+       {{ picture('hero', alt='...', cls='media', loading='eager') }}
+
+   Usage (uploaded project image, full filename handled directly):
+       {{ picture('images/uploads/' ~ p.image, alt=p.name, cls='', loading='lazy') }}
+#}
+{% macro picture(base, alt='', cls='', loading='lazy') -%}
+  {%- if not base or base == 'images/project-placeholder.svg' -%}
+    <img src="{{ url_for('static', filename='images/project-placeholder.svg') }}"
+         alt="{{ alt }}" class="{{ cls }}" loading="{{ loading }}">
+  {%- elif base.startswith('images/uploads/') -%}
+    <img src="{{ url_for('static', filename=base) }}" alt="{{ alt }}" class="{{ cls }}"
+         loading="{{ loading }}"
+         onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/project-placeholder.svg') }}';">
+  {%- else -%}
+    {%- set base = base if '.' not in base else base.split('.')[0] -%}
+    <picture>
+      <source type="image/webp"
+              srcset="{{ url_for('static', filename='images/' ~ base ~ '-800.webp') }} 800w,
+                      {{ url_for('static', filename='images/' ~ base ~ '-1200.webp') }} 1200w,
+                      {{ url_for('static', filename='images/' ~ base ~ '-1600.webp') }} 1600w"
+              sizes="(max-width: 768px) 100vw, 600px">
+      <source type="image/jpeg"
+              srcset="{{ url_for('static', filename='images/' ~ base ~ '-800.jpg') }} 800w,
+                      {{ url_for('static', filename='images/' ~ base ~ '-1200.jpg') }} 1200w,
+                      {{ url_for('static', filename='images/' ~ base ~ '-1600.jpg') }} 1600w"
+              sizes="(max-width: 768px) 100vw, 600px">
+      <img src="{{ url_for('static', filename='images/' ~ base ~ '-1600.jpg') }}"
+           alt="{{ alt }}" class="{{ cls }}" loading="{{ loading }}"
+           onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/project-placeholder.svg') }}';">
+    </picture>
+  {%- endif -%}
+{%- endmacro %}

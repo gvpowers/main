@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% from 'macros/img.html' import picture %}
+{% block title %}About {{ settings.company_name }} | Energy & Power Solutions Since {{ settings.established }}{% endblock %}
+{% block description %}Learn about {{ settings.company_name }}, an established energy and power solutions company serving customers across Tamil Nadu since {{ settings.established }} with solar, generators, UPS, inverters and electrical sales and services.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1>About {{ settings.company_name }}</h1>
+        <p class="breadcrumb"><a href="{{ url_for('public.home') }}">Home</a> &nbsp;/&nbsp; About Us</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div class="content reveal">
+            <span class="eyebrow">Our Story</span>
+            <h2>Established in {{ settings.established }}</h2>
+            <p>{{ settings.company_description }}</p>
+            <p>{{ settings.company_name }} provides both sales and service support, so customers receive complete, end-to-end solutions &mdash; from product selection and installation to ongoing servicing and maintenance.</p>
+            <a href="{{ url_for('public.services') }}" class="btn btn-primary">Explore Our Solutions</a>
+        </div>
+        <div class="visual reveal d1">
+            {{ picture('about', alt='About GV POWERS - energy solutions', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float bottom-right">
+                <div class="num">Since {{ settings.established }}</div>
+                <div class="lbl">Experience that powers trust</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="mini-stats">
+            <div class="mini-stat reveal">
+                <div class="num counter" data-target="{{ stats.solar_projects_completed }}">{{ stats.solar_projects_completed }}</div>
+                <div class="lbl">Solar Projects</div>
+            </div>
+            <div class="mini-stat reveal d1">
+                <div class="num counter" data-target="{{ stats.generators_sold }}">{{ stats.generators_sold }}+</div>
+                <div class="lbl">Generators Sold</div>
+            </div>
+            <div class="mini-stat reveal d2">
+                <div class="num counter" data-target="{{ stats.ups_sold }}">{{ stats.ups_sold }}+</div>
+                <div class="lbl">UPS Sold</div>
+            </div>
+            <div class="mini-stat reveal d3">
+                <div class="num counter" data-target="{{ stats.solar_projects_ongoing }}">{{ stats.solar_projects_ongoing }}</div>
+                <div class="lbl">Ongoing Projects</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container split rev">
+        <div class="content reveal">
+            <span class="eyebrow">Sales &amp; Service</span>
+            <h2>We Sell It. We Install It. We Maintain It.</h2>
+            <p>{{ settings.company_name }} isn't just a supplier &mdash; our own engineers and technicians install, commission, service and maintain the systems we provide, so you get complete end-to-end support.</p>
+            <ul class="check-list">
+                <li>Installation &amp; commissioning by trained technicians</li>
+                <li>Routine maintenance, repairs &amp; troubleshooting</li>
+                <li>AMC (Annual Maintenance Contracts)</li>
+                <li>Genuine spare parts &amp; replacement</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="{{ url_for('public.services') }}" class="btn btn-primary">Our Services</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Book a Service</a>
+            </div>
+        </div>
+        <div class="visual reveal d1">
+            {{ picture('service', alt='GV POWERS engineers servicing industrial equipment', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float top-left">
+                <div class="num">24/7</div>
+                <div class="lbl">Service support</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Areas of Expertise</span>
+            <h2>What We Specialise In</h2>
+        </div>
+        <div class="cards-grid">
+            <div class="icon-card reveal">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+                <h3>Solar Energy Systems</h3>
+                <p>On-grid, off-grid and hybrid solar systems for residential, commercial and industrial applications.</p>
+            </div>
+            <div class="icon-card reveal d1">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+                <h3>Diesel Generators</h3>
+                <p>Sales, installation, AMC, servicing and spare parts for commercial and industrial power backup.</p>
+            </div>
+            <div class="icon-card reveal d2">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7z"/></svg></div>
+                <h3>BESS &amp; UPS</h3>
+                <p>Battery energy storage, online/offline UPS and inverter systems with full service support.</p>
+            </div>
+            <div class="icon-card reveal d3">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+                <h3>Agricultural Pump Sets</h3>
+                <p>Pump sets and solar water pumping systems for agriculture and water applications.</p>
+            </div>
+            <div class="icon-card reveal">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+                <h3>Electrical Solutions</h3>
+                <p>Electrical panels, switchgear, cables and accessories for commercial and industrial needs.</p>
+            </div>
+            <div class="icon-card reveal d1">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.5 4.5 19 3 5 17a3.2 3.2 0 0 1-.8-3l-.32-.32a4 4 0 0 1 5.66-5.66L10 9.5l-2.59 2.59 2 2 2.59-2.59.5.5a4 4 0 0 1-.66 4.9 4 4 0 0 1-4.9.66L5 19.5 6.5 21l.5-.5z"/></svg></div>
+                <h3>Sales &amp; Service</h3>
+                <p>Complete sales, installation, commissioning, maintenance and AMC capabilities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Capabilities</span>
+            <h2>Sales &amp; Service Capabilities</h2>
+        </div>
+        <div class="cards-grid cols-2">
+            <div class="icon-card reveal">
+                <h3 style="color:var(--blue-800)">Sales</h3>
+                <ul class="check-list">
+                    <li>Solar systems &amp; panels</li>
+                    <li>BESS &amp; battery systems</li>
+                    <li>Diesel generators</li>
+                    <li>UPS, inverters &amp; battery backup</li>
+                    <li>Agricultural pump sets</li>
+                    <li>Electrical equipment &amp; accessories</li>
+                </ul>
+            </div>
+            <div class="icon-card reveal d1">
+                <h3 style="color:var(--blue-800)">Services</h3>
+                <ul class="check-list">
+                    <li>Installation &amp; commissioning</li>
+                    <li>Maintenance &amp; repairs</li>
+                    <li>AMC (Annual Maintenance Contracts)</li>
+                    <li>Troubleshooting &amp; inspection</li>
+                    <li>Replacement &amp; servicing</li>
+                    <li>Spare parts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Coverage</span>
+            <h2>Our Presence Across {{ settings.service_area }}</h2>
+            <p>{{ settings.company_name }} provides sales and services across {{ settings.service_area }} with offices in Salem and Chennai.</p>
+        </div>
+        <div class="location-grid">
+            {% for loc in nav_locations %}
+            <div class="location-card {{ 'office' if loc.location_type=='office' }} reveal">
+                <div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+                <div class="loc-type">{{ 'Office' if loc.location_type=='office' else 'Service' }}</div>
+                <h3>{{ loc.city }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Have a project in mind?</h2>
+                <p>Talk to our team about solar, generators, UPS, inverters, pump sets or electrical solutions.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-gold">Contact Us</a>
+                <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-outline-light">Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% from 'macros/img.html' import picture %}
+{% block title %}Electrical Solutions | {{ settings.company_name }}{% endblock %}
+{% block description %}{{ settings.company_name }} provides electrical systems, panels, switchgear, cables and accessories with commercial and industrial electrical solutions across Tamil Nadu.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1>Electrical Solutions</h1>
+        <p class="breadcrumb"><a href="{{ url_for('public.home') }}">Home</a> &nbsp;/&nbsp; Electrical</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div class="visual reveal">
+            {{ picture('electrical', alt='Electrical panels, switchgear and cables by GV POWERS', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+        </div>
+        <div class="content reveal d1">
+            <span class="eyebrow">Electrical Solutions</span>
+            <h2>Complete Electrical Equipment &amp; Systems</h2>
+            <p>{{ settings.company_name }} supplies electrical equipment, panels, switchgear, cables and accessories for commercial and industrial applications, backed by professional service across {{ settings.service_area }}.</p>
+            <ul class="check-list">
+                <li>Electrical panels &amp; switchgear</li>
+                <li>Cables, wires &amp; accessories</li>
+                <li>Distribution equipment</li>
+                <li>Commercial &amp; industrial electrical</li>
+            </ul>
+            <div class="hero-buttons" style="margin-top:10px">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-primary">Get a Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Our Range</span>
+            <h2>Electrical Products &amp; Services</h2>
+        </div>
+        <div class="cards-grid">
+            <div class="icon-card reveal"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>Electrical Equipment</h3><p>Quality electrical equipment for various applications.</p></div>
+            <div class="icon-card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>Electrical Panels</h3><p>Distribution and control panels for buildings and industry.</p></div>
+            <div class="icon-card reveal d2"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>Switchgear</h3><p>Switchgear for safe and reliable power distribution.</p></div>
+            <div class="icon-card reveal d3"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>Cables &amp; Wires</h3><p>Cables and wires for all electrical installations.</p></div>
+            <div class="icon-card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M8 2h2v7H8V2zm6 0h2v7h-2V2zM6 11v6h12v-6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2zm6 8h2a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4h2a2 2 0 0 0 2 2h4z"/></svg></div><h3>Electrical Accessories</h3><p>Accessories and components for complete installations.</p></div>
+            <div class="icon-card reveal d2"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/></svg></div><h3>Commercial &amp; Industrial</h3><p>Electrical solutions for commercial and industrial facilities.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Need electrical support?</h2>
+                <p>Get the right electrical equipment and systems for your project.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-gold">Get a Quote</a>
+                <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-outline-light">Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

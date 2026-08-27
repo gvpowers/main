@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% from 'macros/img.html' import picture %}
+{% block title %}Agricultural Pump Sets & Solar Pumping | {{ settings.company_name }}{% endblock %}
+{% block description %}{{ settings.company_name }} provides agricultural pump sets, solar water pumping systems with sales, installation, service and maintenance across Tamil Nadu.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1>Agricultural Pump Sets</h1>
+        <p class="breadcrumb"><a href="{{ url_for('public.home') }}">Home</a> &nbsp;/&nbsp; Pump Sets</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div class="visual reveal">
+            {{ picture('pump', alt='Agricultural pump sets and solar water pumping by GV POWERS', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+        </div>
+        <div class="content reveal d1">
+            <span class="eyebrow">Agricultural Solutions</span>
+            <h2>Reliable Water Pumping for Agriculture</h2>
+            <p>{{ settings.company_name }} provides agricultural pump sets and solar water pumping systems &mdash; supporting farms and agriculture with reliable water supply across {{ settings.service_area }}.</p>
+            <ul class="check-list">
+                <li>Agriculture pump set sales</li>
+                <li>Solar water pumping systems</li>
+                <li>Pump installation</li>
+                <li>Pump servicing &amp; maintenance</li>
+            </ul>
+            <div class="hero-buttons" style="margin-top:10px">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-primary">Get a Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Pump Solutions</span>
+            <h2>Agricultural &amp; Solar Pumping</h2>
+        </div>
+        <div class="cards-grid">
+            <div class="icon-card reveal"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div><h3>Agriculture Pump Sets</h3><p>Dependable pump sets for irrigation and agricultural water needs.</p></div>
+            <div class="icon-card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>Solar Water Pumping</h3><p>Solar-powered water pumping for sustainable, low-cost irrigation.</p></div>
+            <div class="icon-card reveal d2"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.5 4.5 19 3 5 17a3.2 3.2 0 0 1-.8-3l-.32-.32a4 4 0 0 1 5.66-5.66L10 9.5l-2.59 2.59 2 2 2.59-2.59.5.5a4 4 0 0 1-.66 4.9 4 4 0 0 1-4.9.66L5 19.5 6.5 21l.5-.5z"/></svg></div><h3>Pump Installation</h3><p>Professional installation and setup of water pumping systems.</p></div>
+            <div class="icon-card reveal d3"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7z"/></svg></div><h3>Solar Pump Solutions</h3><p>Complete solar pump systems for farms and water applications.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cards-grid cols-2">
+            <div class="icon-card reveal">
+                <h3 style="color:var(--blue-800)">Sales</h3>
+                <ul class="check-list">
+                    <li>Agriculture pump sets</li>
+                    <li>Solar water pumping systems</li>
+                    <li>Solar pump solutions</li>
+                </ul>
+            </div>
+            <div class="icon-card reveal d1">
+                <h3 style="color:var(--blue-800)">Service &amp; Maintenance</h3>
+                <ul class="check-list">
+                    <li>Pump installation</li>
+                    <li>Pump servicing &amp; maintenance</li>
+                    <li>Troubleshooting &amp; repairs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Need pump set support?</h2>
+                <p>Contact our team for pump sets and solar water pumping solutions.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-gold">Get a Quote</a>
+                <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-outline-light">Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

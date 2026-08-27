@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+{% from 'macros/img.html' import picture %}
+
+{% block content %}
+
+<!-- 1. HERO -->
+<section class="hero">
+    <div class="hero-bg">
+        {{ picture('hero', cls='media', loading='eager') }}
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge reveal">
+                <span class="dot" aria-hidden="true"></span>
+                Established in {{ settings.established }} &mdash; {{ settings.service_area }}
+            </div>
+            <h1 class="reveal d1">{{ settings.hero_headline|replace('Energy Solutions', '<span class="muted">Energy Solutions</span>')|safe }}</h1>
+            <p class="hero-sub reveal d2">{{ settings.hero_subheading }}</p>
+            <p class="hero-text reveal d3">{{ settings.hero_text }}</p>
+            <div class="hero-buttons reveal d4">
+                <a href="{{ url_for('public.services') }}" class="btn btn-primary">Explore Solutions</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Contact {{ settings.company_name }}</a>
+            </div>
+        </div>
+
+        <div class="hero-stats">
+            <div class="hero-stat reveal d1">
+                <div class="num">{{ stats.experience_year }}</div>
+                <div class="lbl">Experience Since</div>
+            </div>
+            <div class="hero-stat reveal d2">
+                <div class="num counter" data-target="{{ stats.solar_projects_completed }}">{{ stats.solar_projects_completed }}</div>
+                <div class="lbl">Solar Projects Done</div>
+            </div>
+            <div class="hero-stat reveal d3">
+                <div class="num counter" data-target="{{ stats.ups_sold }}">{{ stats.ups_sold }}+</div>
+                <div class="lbl">UPS Sold</div>
+            </div>
+            <div class="hero-stat reveal d4">
+                <div class="num counter" data-target="{{ stats.generators_sold }}">{{ stats.generators_sold }}+</div>
+                <div class="lbl">Generators Sold</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. TRUST BAR -->
+<section class="section-tight">
+    <div class="container">
+        <div class="trust-bar reveal">
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="value counter" data-target="1997">{{ stats.experience_year }}</div>
+                    <div class="label">Established</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value counter" data-target="{{ stats.solar_projects_completed }}" data-suffix="+">{{ stats.solar_projects_completed }}</div>
+                    <div class="label">Solar Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value counter" data-target="{{ stats.solar_projects_ongoing }}">{{ stats.solar_projects_ongoing }}</div>
+                    <div class="label">Ongoing Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value counter" data-target="{{ stats.ups_sold }}" data-suffix="+">{{ stats.ups_sold }}</div>
+                    <div class="label">UPS Sold</div>
+                </div>
+                <div class="stat-item">
+                    <div class="value counter" data-target="{{ stats.generators_sold }}" data-suffix="+">{{ stats.generators_sold }}</div>
+                    <div class="label">Generators Sold</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. FEATURE STRIP -->
+<section class="section-tight">
+    <div class="container">
+        <div class="feature-strip">
+            <div class="feature-pill reveal">
+                <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+                <div><h4>Solar Energy</h4><p>On-grid &amp; off-grid</p></div>
+            </div>
+            <div class="feature-pill reveal d1">
+                <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm3 9 3 5 2-3 2 5H7l3-7z"/></svg></div>
+                <div><h4>BESS Systems</h4><p>Energy storage</p></div>
+            </div>
+            <div class="feature-pill reveal d2">
+                <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7z"/></svg></div>
+                <div><h4>UPS &amp; Inverters</h4><p>Backup power</p></div>
+            </div>
+            <div class="feature-pill reveal d3">
+                <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M11 15h2v9h-2V15zm-1-3L4.5 9 8.6 4h6.8l4.1 5L12 12z"/></svg></div>
+                <div><h4>Pumps &amp; Electrical</h4><p>Complete solutions</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. COMPANY INTRODUCTION / ABOUT -->
+<section class="section">
+    <div class="container split">
+        <div class="content reveal">
+            <span class="eyebrow">About {{ settings.company_name }}</span>
+            <h2>Energy &amp; Power Solutions Since {{ settings.established }}</h2>
+            <p>{{ settings.company_description }}</p>
+            <ul class="check-list">
+                <li>Solar Energy Systems &mdash; sales, installation, service</li>
+                <li>Diesel Generators, BESS, UPS &amp; Inverters</li>
+                <li>Agricultural Pump Sets &amp; Electrical Solutions</li>
+                <li>Complete sales, installation, service &amp; maintenance</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="{{ url_for('public.about') }}" class="btn btn-primary">About Us</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Request Service</a>
+            </div>
+        </div>
+        <div class="visual reveal d1">
+            {{ picture('about', alt='GV POWERS energy solutions overview', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float bottom-right">
+                <div class="num">Est. {{ settings.established }}</div>
+                <div class="lbl">Trusted energy partner</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. SERVICES -->
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">What We Offer</span>
+            <h2>Complete Energy Solutions</h2>
+            <p>From solar installation to diesel generators, UPS and electrical systems &mdash; sales, service and maintenance.</p>
+        </div>
+        {% set group_links = {'solar':'public.solar', 'bess':'public.bess', 'ups':'public.ups', 'generators':'public.generators', 'pumps':'public.pumps', 'electrical':'public.electrical', 'service':'public.services'} %}
+        <div class="services-grid">
+            {% for group in groups %}
+            <a href="{{ url_for(group_links.get(group.slug, 'public.services')) }}" class="service-card reveal" style="color:inherit">
+                <div class="s-icon">
+                    {% from 'macros/icons.html' import icon %}{{ icon(group.icon) }}
+                </div>
+                <h3>{{ group.name }}</h3>
+                <p class="s-desc">{{ group.short_description }}</p>
+                <span class="s-arrow">Enquire Now <span class="arrow" aria-hidden="true">&rarr;</span></span>
+            </a>
+            {% endfor %}
+        </div>
+        <div style="text-align:center;margin-top:36px">
+            <a href="{{ url_for('public.services') }}" class="btn btn-primary">View All Services</a>
+            <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Get a Quote</a>
+        </div>
+    </div>
+</section>
+
+<!-- 6. SOLAR CENTERPIECE -->
+<section class="section">
+    <div class="container split">
+        <div class="visual reveal">
+            {{ picture('solar', alt='On-grid, off-grid and hybrid solar systems', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float top-left">
+                <div class="num counter" data-target="{{ stats.solar_projects_completed }}">{{ stats.solar_projects_completed }}+</div>
+                <div class="lbl">Solar projects done</div>
+            </div>
+        </div>
+        <div class="content reveal d1">
+            <span class="eyebrow">Solar Energy Solutions</span>
+            <h2>On-Grid &bull; Off-Grid &bull; Hybrid Solar Systems</h2>
+            <p>We design, install and maintain solar energy systems for homes, businesses and institutions &mdash; reducing energy costs with reliable renewable power.</p>
+            <ul class="check-list">
+                <li>Solar Panel Sales &amp; System Design</li>
+                <li>On-Grid, Off-Grid &amp; Hybrid Systems</li>
+                <li>Solar Rooftop Systems</li>
+                <li>Installation, Service &amp; Maintenance</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="{{ url_for('public.solar') }}" class="btn btn-primary">Solar Solutions</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Get a Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. GENERATOR -->
+<section class="section">
+    <div class="container split rev">
+        <div class="content reveal">
+            <span class="eyebrow">Generator Solutions</span>
+            <h2>Diesel Generators &amp; Power Backup</h2>
+            <p>We supply, install and maintain diesel generators for commercial and industrial applications &mdash; backed by AMC, servicing and genuine spare parts.</p>
+            <ul class="check-list">
+                <li>Diesel Generator Sales &amp; Installation</li>
+                <li>Commissioning, AMC &amp; Servicing</li>
+                <li>Repairs &amp; Genuine Spare Parts</li>
+                <li>{{ stats.generators_sold }}+ Generators Sold</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="{{ url_for('public.generators') }}" class="btn btn-primary">Generator Solutions</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Call Now</a>
+            </div>
+        </div>
+        <div class="visual reveal d1">
+            {{ picture('generator', alt='Diesel generators by GV POWERS', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float top-left">
+                <div class="num">{{ stats.generators_sold }}+</div>
+                <div class="lbl">Generators sold</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. UPS & INVERTER -->
+<section class="section">
+    <div class="container split">
+        <div class="visual reveal">
+            {{ picture('ups', alt='Industrial UPS and power backup units', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float top-left">
+                <div class="num">{{ stats.ups_sold }}+</div>
+                <div class="lbl">UPS sold</div>
+            </div>
+        </div>
+        <div class="content reveal d1">
+            <span class="eyebrow">UPS &amp; Inverters</span>
+            <h2>UPS, Inverters &amp; Battery Backup</h2>
+            <p>Online and offline UPS systems, solar and hybrid inverters and battery backup &mdash; with {{ stats.ups_sold }}+ units sold and complete service support.</p>
+            <ul class="check-list">
+                <li>Online &amp; Offline UPS Systems</li>
+                <li>Solar, Hybrid &amp; Battery Systems</li>
+                <li>Inverter &amp; UPS Service</li>
+                <li>{{ stats.ups_sold }}+ UPS Sold</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="{{ url_for('public.ups') }}" class="btn btn-primary">UPS &amp; Inverters</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Request Service</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 9. BESS -->
+<section class="section">
+    <div class="container split rev">
+        <div class="content reveal">
+            <span class="eyebrow">Energy Storage</span>
+            <h2>Battery Energy Storage Systems (BESS)</h2>
+            <p>We provide battery energy storage solutions for backup, solar-plus-storage and commercial &amp; industrial applications &mdash; designed, installed and maintained by our team.</p>
+            <ul class="check-list">
+                <li>BESS Sales &amp; Installation</li>
+                <li>Solar + BESS Solutions</li>
+                <li>Commercial &amp; Industrial Energy Storage</li>
+                <li>Battery Maintenance &amp; Service</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="{{ url_for('public.bess') }}" class="btn btn-gold">BESS Solutions</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Enquire Now</a>
+            </div>
+        </div>
+        <div class="visual reveal d1">
+            {{ picture('bess', alt='Battery energy storage systems (BESS)', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float top-left">
+                <div class="num">Grid-ready</div>
+                <div class="lbl">Energy storage</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 10. PUMPS -->
+<section class="section">
+    <div class="container split">
+        <div class="visual reveal">
+            {{ picture('pump', alt='Agricultural pump sets and solar water pumping', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+        </div>
+        <div class="content reveal d1">
+            <span class="eyebrow">Agricultural Solutions</span>
+            <h2>Agricultural Pump Sets &amp; Solar Pumping</h2>
+            <p>Solar water pumping systems and agricultural pump sets &mdash; helping farms and agriculture stay powered and productive with reliable water supply.</p>
+            <ul class="check-list">
+                <li>Agriculture Pump Set Sales</li>
+                <li>Solar Water Pumping Systems</li>
+                <li>Pump Installation</li>
+                <li>Pump Servicing &amp; Maintenance</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="{{ url_for('public.pumps') }}" class="btn btn-primary">Pump Solutions</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Get a Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 11. ELECTRICAL -->
+<section class="section">
+    <div class="container split rev">
+        <div class="content reveal">
+            <span class="eyebrow">Electrical Solutions</span>
+            <h2>Electrical Equipment &amp; Systems</h2>
+            <p>Electrical panels, switchgear, cables and accessories for commercial and industrial applications &mdash; complete electrical solutions under one roof.</p>
+            <ul class="check-list">
+                <li>Electrical Panels &amp; Switchgear</li>
+                <li>Cables, Wires &amp; Accessories</li>
+                <li>Distribution Equipment</li>
+                <li>Commercial &amp; Industrial Electrical</li>
+            </ul>
+            <div class="hero-buttons">
+                <a href="{{ url_for('public.electrical') }}" class="btn btn-primary">Electrical Solutions</a>
+                <a href="{{ url_for('public.contact') }}" class="btn btn-ghost-glass">Contact Us</a>
+            </div>
+        </div>
+        <div class="visual reveal d1">
+            {{ picture('electrical', alt='Electrical panels, switchgear and cables', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+        </div>
+    </div>
+</section>
+
+<!-- 12 & 13. PROJECTS -->
+<section class="section" id="projects">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Our Work</span>
+            <h2>Featured Projects</h2>
+            <p>Completed and ongoing installations by {{ settings.company_name }}.</p>
+        </div>
+        <div class="project-grid">
+            {% for p in projects_completed[:3] %}
+            <div class="project-card reveal">
+                <div class="project-thumb {{ 'no-img' if not p.image }}">
+                    {% if p.image %}<img src="{{ url_for('static', filename='images/uploads/' ~ p.image) }}" alt="{{ p.name }}" loading="lazy">{% else %}<img src="{{ url_for('static', filename='images/project-placeholder.svg') }}" alt="{{ p.name }}" loading="lazy">{% endif %}
+                </div>
+                <div class="project-body">
+                    <h3>{{ p.name }}</h3>
+                    <div class="project-meta">
+                        <span>{{ p.location or 'Location' }}</span><span>{{ p.capacity or '' }}</span>
+                    </div>
+                    <div class="project-status status-completed">Completed</div>
+                </div>
+            </div>
+            {% endfor %}
+            {% for p in projects_ongoing[:3] %}
+            <div class="project-card reveal">
+                <div class="project-thumb {{ 'no-img' if not p.image }}">
+                    {% if p.image %}<img src="{{ url_for('static', filename='images/uploads/' ~ p.image) }}" alt="{{ p.name }}" loading="lazy">{% else %}<img src="{{ url_for('static', filename='images/project-placeholder.svg') }}" alt="{{ p.name }}" loading="lazy">{% endif %}
+                </div>
+                <div class="project-body">
+                    <h3>{{ p.name }}</h3>
+                    <div class="project-meta"><span>{{ p.location or 'Location' }}</span><span>{{ p.capacity or '' }}</span></div>
+                    <div class="project-status status-ongoing">Ongoing</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% if not projects_completed and not projects_ongoing %}
+        <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg>
+            Project information coming soon.
+        </div>
+        {% endif %}
+        <div style="text-align:center;margin-top:40px">
+            <a href="{{ url_for('public.projects') }}" class="btn btn-primary">View All Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- 14. WHY CHOOSE -->
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Why Choose Us</span>
+            <h2>Why Choose {{ settings.company_name }}</h2>
+        </div>
+        <div class="cards-grid cols-2">
+            <div class="icon-card reveal">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <h3>Established Experience</h3>
+                <p>Serving customers with energy solutions since {{ settings.established }}.</p>
+            </div>
+            <div class="icon-card reveal d1">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                <h3>Complete Solutions</h3>
+                <p>Sales, installation, service and maintenance under one roof.</p>
+            </div>
+            <div class="icon-card reveal d2">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+                <h3>{{ settings.service_area }} Coverage</h3>
+                <p>Sales and services across {{ settings.service_area }} with offices in Salem and Chennai.</p>
+            </div>
+            <div class="icon-card reveal d3">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+                <h3>Multiple Energy Solutions</h3>
+                <p>Solar, BESS, generators, UPS, inverters and electrical systems.</p>
+            </div>
+            <div class="icon-card reveal">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.5 4.5 19 3 5 17a3.2 3.2 0 0 1-.8-3l-.32-.32a4 4 0 0 1 5.66-5.66L10 9.5l-2.59 2.59 2 2 2.59-2.59.5.5a4 4 0 0 1-.66 4.9 4 4 0 0 1-4.9.66L5 19.5 6.5 21l.5-.5z"/></svg></div>
+                <h3>Service Support</h3>
+                <p>Dedicated maintenance, repair and AMC support for all systems.</p>
+            </div>
+            <div class="icon-card reveal d1">
+                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                <h3>Trusted Product Solutions</h3>
+                <p>Professional power and energy solutions for residential, commercial, industrial, agriculture and institutional customers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 15. COVERAGE -->
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Service Coverage</span>
+            <h2>Serving Customers Across {{ settings.service_area }}</h2>
+            <p>Our sales and service network reaches customers across the state.</p>
+        </div>
+        <div class="location-grid">
+            {% for loc in nav_locations %}
+            <div class="location-card {{ 'office' if loc.location_type=='office' }} reveal">
+                <div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></div>
+                <div class="loc-type">{{ 'Office' if loc.location_type=='office' else 'Service' }}</div>
+                <h3>{{ loc.city }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 16. CTA -->
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Need a Quote or Service Request?</h2>
+                <p>Our team is ready to help with your solar, generator, UPS, inverter, pump set or electrical requirements.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-gold">Get in Touch</a>
+                <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-outline-light">Call {{ settings.phone_1 }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

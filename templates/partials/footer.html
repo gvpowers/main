@@ -1,0 +1,67 @@
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-col footer-brand">
+                <div class="footer-logo">
+                    <img class="brand-logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="{{ settings.company_name }}">
+                </div>
+                <p>{{ settings.company_description }}</p>
+                <div class="footer-badges">
+                    <span class="badge">Est. {{ settings.established }}</span>
+                    <span class="badge">Serving {{ settings.service_area }}</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="{{ url_for('public.solar') }}">Solar Energy</a></li>
+                    <li><a href="{{ url_for('public.bess') }}">BESS</a></li>
+                    <li><a href="{{ url_for('public.generators') }}">Generators</a></li>
+                    <li><a href="{{ url_for('public.ups') }}">UPS</a></li>
+                    <li><a href="{{ url_for('public.ups') }}">Inverters</a></li>
+                    <li><a href="{{ url_for('public.pumps') }}">Agricultural Pumps</a></li>
+                    <li><a href="{{ url_for('public.electrical') }}">Electrical Solutions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="{{ url_for('public.about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('public.projects') }}">Projects</a></li>
+                    <li><a href="{{ url_for('public.services') }}">Services</a></li>
+                    <li><a href="{{ url_for('public.contact') }}">Contact</a></li>
+                </ul>
+                <h4 class="mt">Coverage</h4>
+                <p style="font-size:.9rem;color:var(--text-3)">Sales &amp; Services Across {{ settings.service_area }}</p>
+                <ul class="coverage-list">
+                    {% for loc in nav_locations %}
+                        <li>{{ loc.city }}</li>
+                    {% endfor %}
+                    <li class="coverage-more">+ more locations</li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <ul class="contact-list">
+                    <li>
+                        <strong>Salem</strong>
+                        <a href="tel:{{ settings.phone_1_tel }}">{{ settings.phone_1 }}</a>
+                        <a href="mailto:{{ settings.email_1 }}">{{ settings.email_1 }}</a>
+                    </li>
+                    <li>
+                        <strong>Chennai</strong>
+                        <a href="tel:{{ settings.phone_2_tel }}">{{ settings.phone_2 }}</a>
+                        <a href="mailto:{{ settings.email_2 }}">{{ settings.email_2 }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ settings.established }} &ndash; 2026 {{ settings.company_name }}. All rights reserved.</p>
+            <p>Energy &amp; Power Solutions Since {{ settings.established }}</p>
+        </div>
+    </div>
+</footer>

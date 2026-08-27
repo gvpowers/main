@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% from 'macros/img.html' import picture %}
+{% block title %}Diesel Generators & Power Backup | {{ settings.company_name }}{% endblock %}
+{% block description %}{{ settings.company_name }} supplies, installs and services diesel generators with AMC, repairs and spare parts across Tamil Nadu. {{ stats.generators_sold }}+ generators sold.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="container">
+        <h1>Generator Solutions</h1>
+        <p class="breadcrumb"><a href="{{ url_for('public.home') }}">Home</a> &nbsp;/&nbsp; Generators</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container split">
+        <div class="visual reveal">
+            {{ picture('generator', alt='Diesel generators by GV POWERS', loading='lazy') }}
+            <div class="visual-glow" aria-hidden="true"></div>
+            <div class="visual-float bottom-right">
+                <div class="num counter" data-target="{{ stats.generators_sold }}">{{ stats.generators_sold }}+</div>
+                <div class="lbl">Generators sold</div>
+            </div>
+        </div>
+        <div class="content reveal d1">
+            <span class="eyebrow">Diesel Generators</span>
+            <h2>Reliable Power Backup with {{ stats.generators_sold }}+ Generators Sold</h2>
+            <p>{{ settings.company_name }} provides complete diesel generator (DG set) solutions &mdash; from sales and installation to AMC, servicing and genuine spare parts &mdash; for businesses and industries across {{ settings.service_area }}.</p>
+            <ul class="check-list">
+                <li>Diesel generator sales</li>
+                <li>Installation &amp; commissioning</li>
+                <li>AMC &amp; scheduled maintenance</li>
+                <li>Repairs &amp; genuine spare parts</li>
+            </ul>
+            <div class="hero-buttons" style="margin-top:10px">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-primary">Get a Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Generator Services</span>
+            <h2>End-to-End Generator Support</h2>
+        </div>
+        <div class="cards-grid cols-2">
+            <div class="icon-card reveal"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>Generator Sales</h3><p>Diesel generators for commercial, industrial and institutional applications.</p></div>
+            <div class="icon-card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20.5 4.5 19 3 5 17a3.2 3.2 0 0 1-.8-3l-.32-.32a4 4 0 0 1 5.66-5.66L10 9.5l-2.59 2.59 2 2 2.59-2.59.5.5a4 4 0 0 1-.66 4.9 4 4 0 0 1-4.9.66L5 19.5 6.5 21l.5-.5z"/></svg></div><h3>Installation &amp; Commissioning</h3><p>Professional installation, electrical connection and generator commissioning.</p></div>
+            <div class="icon-card reveal d2"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm8.5 4a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0z"/></svg></div><h3>Generator AMC</h3><p>Annual maintenance contracts for reliable, uninterrupted generator performance.</p></div>
+            <div class="icon-card reveal d3"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14.5 2 4 18h7l-1.5 4 10.5-16h-7L14.5 2z"/></svg></div><h3>Servicing &amp; Repairs</h3><p>Prompt servicing, repairs and troubleshooting by experienced technicians.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cards-grid cols-2">
+            <div class="icon-card reveal">
+                <h3 style="color:var(--blue-800)">Maintenance</h3>
+                <ul class="check-list">
+                    <li>Scheduled servicing &amp; oil changes</li>
+                    <li>Load testing &amp; inspection</li>
+                    <li>Battery &amp; alternator checks</li>
+                    <li>Preventive maintenance plans</li>
+                </ul>
+            </div>
+            <div class="icon-card reveal d1">
+                <h3 style="color:var(--blue-800)">Spare Parts &amp; AMC</h3>
+                <ul class="check-list">
+                    <li>Genuine spare parts</li>
+                    <li>Filters, belts &amp; consumables</li>
+                    <li>AMC / Annual Maintenance Contracts</li>
+                    <li>Emergency breakdown support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Need generator sales or service?</h2>
+                <p>Contact our team for generators and complete backup power support.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="{{ url_for('public.contact') }}" class="btn btn-gold">Get a Quote</a>
+                <a href="tel:{{ settings.phone_1_tel }}" class="btn btn-outline-light">Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'admin/base.html' %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+<div class="admin-top">
+    <div>
+        <h1>Projects</h1>
+        <p style="color:var(--ink-500)">{{ items|length }} project(s)</p>
+    </div>
+    <a href="{{ url_for('admin.project_add') }}" class="btn btn-primary btn-sm">Add Project</a>
+</div>
+
+<div class="admin-card">
+    <div class="card-body table-wrap">
+        <table class="admin-table">
+            <thead>
+                <tr><th>Name</th><th>Location</th><th>Capacity</th><th>Client</th><th>Status</th><th>Completion</th><th>Image</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+                {% for p in items %}
+                <tr>
+                    <td><strong>{{ p.name }}</strong></td>
+                    <td>{{ p.location or '-' }}</td>
+                    <td>{{ p.capacity or '-' }}</td>
+                    <td>{{ p.client or '-' }}</td>
+                    <td><span class="pill pill-{{ 'completed' if p.status=='completed' else 'in_progress' }}">{{ p.status|title }}</span></td>
+                    <td>{{ p.completion_date|dt or '-' }}</td>
+                    <td>{% if p.image %}<span class="pill pill-on">Yes</span>{% else %}<span class="pill pill-off">No</span>{% endif %}</td>
+                    <td>
+                        <a href="{{ url_for('admin.project_edit', pid=p.id) }}" class="btn btn-ghost btn-sm">Edit</a>
+                        <form method="post" action="{{ url_for('admin.project_delete', pid=p.id) }}" style="display:inline" onsubmit="return confirm('Delete this project?');">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr><td colspan="8" style="color:var(--ink-500)">No projects yet. Add one to display on the website.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
